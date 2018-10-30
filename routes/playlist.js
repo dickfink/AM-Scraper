@@ -1,8 +1,23 @@
 var express = require('express');
+// express handlebars needed for Helper to create "copy".
+var exphbs  = require('express-handlebars');
+var router = express.Router();
+// also needed is fetch (for getting page data) and cheerio (for scraping DOM a la jQuery)
 var fetch = require('node-fetch');
 var cheerio = require('cheerio');
-var router = express.Router();
 
+// copy-link helper
+var hbs = exphbs.create({
+  helpers: {
+    foo: function () {
+      alert('clicked!');
+    }
+  }
+});
+
+function copyLink(){
+  alert('clicked!');
+};
 
 /* GET playlist */
 router.get('/', function(req, res) {
@@ -16,11 +31,11 @@ router.get('/', function(req, res) {
   .then((body) => {
   // load the page into Cheerio
     $ = cheerio.load(body);
-  // make an array to hold songData
     // find each song item    
     let songs = $('body').find('li.tracklist-item');
     // for each song
     let self = this;
+    // make an array to hold songData
     self.songData = new Array();
     $(songs).each((i, song) => {
       // find the relevant info and store it in our array
@@ -30,8 +45,9 @@ router.get('/', function(req, res) {
         image: $(songs[i]).find('img').attr('src'),
         artist: $(songs[i]).find('.table__row__link').text(),
       }
-    });
-    res.render('playlist', { title: 'Playlist', songs: self.songData, });
+    });    
+    // render playlist template with the songData
+    res.render('playlist', { title: 'Song in a Playlist', songs: self.songData, });
   });
 });
 
