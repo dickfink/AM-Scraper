@@ -1,12 +1,15 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
-<p>{{playlistURL}}</p>
+<h1>Song in a Playlist</h1>
+
+<form action="../playlist" method="GET">
+    <input type="text" name="url"  placeholder="https://itunes.apple.com/us/playlist/sade-essentials/pl.3b2a6ed0b17f49a98d70da31b81bce8f">
+    <input type="submit">
+</form>
 
 {{#songs}}
 <ul>
     <li>
         <img src="{{image}}" /> 
-        <a href="{{url}}">{{artist}} - {{title}}</a>
+        <a href="{{url}}">{{artist}} - {{title}}</a> | <a href="">Copy Link</a>
     </li>
 </ul>    
 {{/songs}}
