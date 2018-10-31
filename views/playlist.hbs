@@ -9,7 +9,10 @@
 <ul>
     <li>
         <img src="{{image}}" /> 
-        <a href="{{url}}">{{artist}} - {{title}}</a> | <button onclick="copyLink()">Copy Link</button>
+        <a href="{{url}}">{{artist}} - {{title}}</a> | <button class="btn" data-clipboard-text="{{url}}">Copy Link</button>
     </li>
 </ul>    
 {{/songs}}
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>new ClipboardJS('.btn');</script>
