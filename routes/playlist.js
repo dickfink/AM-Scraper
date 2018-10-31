@@ -21,10 +21,8 @@ function copyLink(){
 
 /* GET playlist */
 router.get('/', function(req, res) {
-  
   // get playlist URL from URL (via the Form)
   let playlist_url = req.param('url');
-  
   // fetch the contents of the url
   fetch(playlist_url)
   .then(res => res.text())
@@ -33,13 +31,11 @@ router.get('/', function(req, res) {
     $ = cheerio.load(body);
     // find each song item    
     let songs = $('body').find('li.tracklist-item');
-    // for each song
-    let self = this;
     // make an array to hold songData
-    self.songData = new Array();
-    $(songs).each((i, song) => {
-      // find the relevant info and store it in our array
-      self.songData[i] = {                
+    let songData = new Array();
+    // for each song find the relevant info and store it in our array              
+    $(songs).each((i, song) => {      
+      songData[i] = {                
         url: playlist_url + '?i=' + $(songs[i]).find('a').attr('href').match(/\s*=\s*(.*)/)[1],
         title: $(songs[i]).find('span').text().trim(),
         image: $(songs[i]).find('img').attr('src'),
@@ -47,7 +43,7 @@ router.get('/', function(req, res) {
       }
     });    
     // render playlist template with the songData
-    res.render('playlist', { title: 'Song in a Playlist', songs: self.songData, });
+    res.render('playlist', { title: 'Song in a Playlist', songs: songData, });
   });
 });
 
