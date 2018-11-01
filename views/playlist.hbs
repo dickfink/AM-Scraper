@@ -7,14 +7,12 @@
 
 <ul class="tracklist">
 {{#songs}}
-
     <li class="tracklist-item">
-        <img class="tracklist-item__artwork" src="{{image}}" /> 
+        <img class="artwork" src="{{image}}" />
         <div class="tracklist-item__text we-selectable-item__link-text">
-            <div class="tracklist-item__text__headline targeted-link__target we-truncate we-truncate--single-line ember-view">{{title}}</div><br />
-            <div>{{artist}}</div>
-        </div>        
-        {{!-- <a href="{{url}}">{{artist}} - {{title}}</a>  --}}
+            <span class="title">{{title}}</span>
+            <span class="artist">{{artist}}</span>
+        </div>
         <div id="{{id}}" class="btn tracklist-item__duration" aria-label="Copied to Clipboard." data-clipboard-text="{{url}}" onclick="addToolTip('{{id}}')">Copy Link</div>
     </li>
 {{/songs}}
