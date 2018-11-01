@@ -35,7 +35,8 @@ router.get('/', function(req, res) {
     let songData = new Array();
     // for each song find the relevant info and store it in our array              
     $(songs).each((i, song) => {      
-      songData[i] = {                
+      songData[i] = {
+        id: i,                
         url: playlist_url + '?i=' + $(songs[i]).find('a').attr('href').match(/\s*=\s*(.*)/)[1],
         title: $(songs[i]).find('span').text().trim(),
         image: $(songs[i]).find('img').attr('src'),

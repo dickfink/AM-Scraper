@@ -5,14 +5,32 @@
     <input type="submit">
 </form>
 
+<ul class="tracklist">
 {{#songs}}
-<ul>
-    <li>
-        <img src="{{image}}" /> 
-        <a href="{{url}}">{{artist}} - {{title}}</a> | <button class="btn" data-clipboard-text="{{url}}">Copy Link</button>
+
+    <li class="tracklist-item">
+        <img class="tracklist-item__artwork" src="{{image}}" /> 
+        <div class="tracklist-item__text we-selectable-item__link-text">
+            <div class="tracklist-item__text__headline targeted-link__target we-truncate we-truncate--single-line ember-view">{{title}}</div><br />
+            <div>{{artist}}</div>
+        </div>        
+        {{!-- <a href="{{url}}">{{artist}} - {{title}}</a>  --}}
+        <div id="{{id}}" class="btn tracklist-item__duration" aria-label="Copied to Clipboard." data-clipboard-text="{{url}}" onclick="addToolTip('{{id}}')">Copy Link</div>
     </li>
-</ul>    
 {{/songs}}
+</ul>    
 
 <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
-<script>new ClipboardJS('.btn');</script>
+<script>
+    new ClipboardJS('.btn');
+    // on click, get the ID of the clicked element
+    function addToolTip(id){
+        var elem = document.getElementById(id);
+        // add tooltip CSS to the element
+        elem.setAttribute("class", "btn tooltipped tooltipped-n tooltipped-no-delay border p-2 mb-2 mr-2 float-left");
+        setTimeout(function() {
+            // remove it 1 second later
+            elem.setAttribute("class", "btn");
+            }, 750);
+    }
+</script>
