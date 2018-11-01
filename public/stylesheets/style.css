@@ -1,8 +1,18 @@
-body {
-  /* padding: 50px; */
-  max-width: 500px;
+body { 
   font-family: Helvetica, Arial, sans-serif;
   background: #fff;
+}
+
+
+footer {
+  float: right;
+  color: #8e8e93;
+  font-size: 10px;
+  font-style: italic;
+}
+.center {
+  margin: auto;
+  max-width: 500px;
 }
 
 a {
@@ -15,13 +25,14 @@ form {
 }
 
 #searchBox {
-  width: 98%;
+  width: 400px;
+  height: 25px;
+  font-size: .8em;
 }
 
 #submitButton {
-  position: absolute;
-  top: 22px;
-  right: 0px;
+  height: 30px;
+  font-size: 1.2em;
 }
 
 .tracklist {

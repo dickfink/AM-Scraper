@@ -44,7 +44,7 @@ router.get('/', function(req, res) {
       }
     });    
     // render playlist template with the songData
-    res.render('playlist', { title: 'Song in a Playlist', songs: songData, });
+    res.render('playlist', { title: 'Song in a Playlist', songs: songData, formData: playlist_url});
   });
 });
 

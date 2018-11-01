@@ -1,6 +1,9 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
-<form action="/playlist" method="GET">
-    <input type="text" name="url" placeholder="https://itunes.apple.com/us/playlist/sade-essentials/pl.3b2a6ed0b17f49a98d70da31b81bce8f">
-    <input type="submit">
+<h1>Song in a Playlist</h1>
+<p>(A tool to build a link to a specific song within a playlist)</p>
+
+<form action="../playlist" method="GET">
+    <input id="searchBox" type="text" name="url"  placeholder="https://itunes.apple.com/us/playlist/sade-essentials/pl.3b2a6ed0b17f49a98d70da31b81bce8f">
+    <input id="submitButton" type="submit">
 </form>
+
+<p>To get started, enter a playlist URL above.</p>
