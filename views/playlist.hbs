@@ -1,8 +1,9 @@
 <h1>Song in a Playlist</h1>
+<p>(A tool to built a link to a specific song within a playlist)</p>
 
 <form action="../playlist" method="GET">
-    <input type="text" name="url"  placeholder="https://itunes.apple.com/us/playlist/sade-essentials/pl.3b2a6ed0b17f49a98d70da31b81bce8f">
-    <input type="submit">
+    <input id="searchBox" type="text" name="url"  placeholder="https://itunes.apple.com/us/playlist/sade-essentials/pl.3b2a6ed0b17f49a98d70da31b81bce8f">
+    <input id="submitButton" type="submit">
 </form>
 
 <ul class="tracklist">
@@ -10,25 +11,29 @@
     <li class="tracklist-item">
         <img class="artwork" src="{{image}}" />
         <div class="tracklist-item__text we-selectable-item__link-text">
-            <span class="title">{{title}}</span>
-            <span class="artist">{{artist}}</span>
+            <a href="{{url}}">
+                <span class="title">{{title}}</span><br />
+                <span class="artist">{{artist}}</span>
+            </a>
         </div>
-        <div id="{{id}}" class="btn tracklist-item__duration" aria-label="Copied to Clipboard." data-clipboard-text="{{url}}" onclick="addToolTip('{{id}}')">Copy Link</div>
+        <div class="btn tracklist-item__duration">
+            <span id="{{id}}" class="tooltip" aria-label="Copied to Clipboard." data-clipboard-text="{{url}}" onclick="addToolTip('{{id}}')">Copy Link</span>
+        </div>
     </li>
 {{/songs}}
 </ul>    
 
 <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
 <script>
-    new ClipboardJS('.btn');
+    new ClipboardJS('.tooltip');
     // on click, get the ID of the clicked element
     function addToolTip(id){
         var elem = document.getElementById(id);
         // add tooltip CSS to the element
-        elem.setAttribute("class", "btn tooltipped tooltipped-n tooltipped-no-delay border p-2 mb-2 mr-2 float-left");
+        elem.setAttribute("class", "tooltip tooltipped tooltipped-n tooltipped-no-delay border p-2 mb-2 mr-2 float-left");
         setTimeout(function() {
             // remove it 1 second later
-            elem.setAttribute("class", "btn");
+            elem.setAttribute("class", "tooltip");
             }, 750);
     }
 </script>
