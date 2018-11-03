@@ -1,9 +1,14 @@
-<h1>Song in a Playlist</h1>
-<p>(A tool to build a link to a specific song within a playlist)</p>
-
+<a href="/"><h1 class="title is-2">Song in a Playlist</h1></a>
+<p class="subtitle is-4">(A tool to build a link to a specific song within a playlist)</p>
 <form action="../playlist" method="GET">
-    <input id="searchBox" type="text" name="url"  placeholder="https://itunes.apple.com/us/playlist/sade-essentials/pl.3b2a6ed0b17f49a98d70da31b81bce8f">
-    <input id="submitButton" type="submit">
+    <div class="field has-addons">
+        <div class="control is-expanded">
+            <input class="input" id="searchBox" type="text" name="url"  placeholder="https://itunes.apple.com/us/playlist/sade-essentials/pl.3b2a6ed0b17f49a98d70da31b81bce8f">
+        </div>
+        <div class="control">
+            <input id="submitButton" type="submit" class="button is-info">
+        </div>
+    </div>
 </form>
-
-<p>To get started, enter a playlist URL above.</p>
+<p class="help">To get started, enter a playlist URL above.</p>
+<ul class="tracklist"></ul>

@@ -1,18 +1,13 @@
 body { 
-  font-family: Helvetica, Arial, sans-serif;
   background: #fff;
 }
-
 
 footer {
   float: right;
   color: #8e8e93;
   font-size: 10px;
   font-style: italic;
-}
-.center {
-  margin: auto;
-  max-width: 500px;
+  padding-top: 10px;
 }
 
 a {
@@ -24,16 +19,16 @@ form {
   position: relative;
 }
 
-#searchBox {
+/* #searchBox {
   width: 400px;
   height: 25px;
   font-size: .8em;
-}
-
+} */
+/* 
 #submitButton {
   height: 30px;
   font-size: 1.2em;
-}
+} */
 
 .tracklist {
   display: block;
@@ -62,7 +57,7 @@ form {
   background-color: rgb(245, 245, 245); 
 }
 
-.tracklist-item:hover .title {
+.tracklist-item:hover .song-title {
   color: #da0f47;
 }
 
@@ -90,7 +85,7 @@ form {
   margin-right: 6px;
 }
 
-.title {
+.song-title {
   color: #000;
   top: 10px;
 }
