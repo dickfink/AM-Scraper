@@ -13,12 +13,12 @@
     "debug": "~2.6.9",
     "express": "~4.16.0",
     "express-handlebars": "^3.0.0",
-    "hbs": "~4.0.1",
+    "hbs": "^4.1.0",
     "http-errors": "~1.6.2",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.15",
     "morgan": "~1.9.0",
     "node-fetch": "^2.2.0",
-    "node-sass": "^4.9.4",
+    "node-sass": "^4.13.1",
     "primer-tooltips": "^1.5.8"
   }
 }
