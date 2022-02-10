@@ -18,7 +18,7 @@
     "lodash": "^4.17.15",
     "morgan": "~1.9.0",
     "node-fetch": "^2.2.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "primer-tooltips": "^1.5.8"
   }
 }
